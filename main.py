@@ -14,7 +14,7 @@ def index():
 
     return response
 
-app.route("/", methods=["POST"])
+app.route("/result", methods=["POST"])
 def result():
     guess = int(request.form.get("guess"))
     secret_number = int(request.cookies.get("secret_number"))
@@ -27,10 +27,10 @@ def result():
 
     elif guess > secret_number:
         message = "Your guess is to high"
-        response = make_response(render_template("result.html", message=message))
+        return render_template("result.html", message=message)
     elif guess < secret_number:
         message = "Your guess is to small"
-        response = make_response(render_template("result.html", message=message))
+        return render_template("result.html", message=message)
         
 
 
