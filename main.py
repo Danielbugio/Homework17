@@ -14,7 +14,7 @@ def index():
 
     return response
 
-app.route("/", methods=["POST"])
+app.route("/result", methods=["POST"])
 def result():
     guess = int(request.form.get("guess"))
     secret_number = int(request.cookies.get("secret_number"))
